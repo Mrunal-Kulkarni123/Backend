@@ -5,6 +5,7 @@ const cors = require("cors");
 const connectDB = require("./config/database");
 const authRouter = require("./routes/authRoutes");
 const taskRouter = require("./routes/taskRoutes");
+const adminRouter = require("./routes/adminRoutes");
 const app = express();
 connectDB();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/tasks", taskRouter);
+app.use("/api/v1/admin", adminRouter);
 app.get("/", (req, res) => {
   res.send("Task Manager API is running");
 });
